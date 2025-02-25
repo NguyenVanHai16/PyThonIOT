@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THÔNG TIN DỰ BÁO THỜI TIẾT</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>THÔNG TIN DỰ BÁO THỜI TIẾT</header>
+
+    <div class="sensor-data">
+        <div class="sensor-settings">
+            <label for="sensorInterval">Chu kỳ đọc:</label>
+            <select id="sensorInterval">
+                <option value="5000">5 giây</option>
+                <option value="10000">10 giây</option>
+                <option value="30000">30 giây</option>
+                <option value="60000">1 phút</option>
+            </select>
+        </div>
+        <button id="espButton">🚀 Bật ESP</button>
+        <div class="weather-box">🌡️ Nhiệt độ: <span id="temperature">--°C</span></div>
+        <div class="weather-box">💧 Độ ẩm: <span id="humidity">--%</span></div>
+    </div>
+
+    <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Tìm kiếm tỉnh..." list="cityList">
+        <datalist id="cityList"></datalist>
+        <button id="searchButton">🔍</button>
+    </div>
+
+    <div class="current-weather">
+        <h2>Thông tin chất lượng không khí</h2>
+        <div class="weather-box">📍 Vị trí: <span id="city">Đang tải...</span></div>
+        <div class="weather-box">🌞 Tia UV: <span id="uvIndex">--</span></div>
+        <div class="weather-box">🌫️ PM10: <span id="pm10">-- µg/m³</span></div>
+        <div class="weather-box">💨 PM2.5: <span id="pm25">-- µg/m³</span></div>
+    </div>
+
+    <div class="chart-section">
+        <h3>Biểu đồ chất lượng không khí</h3>
+        <div class="chart-container">
+            <canvas id="weatherChart"></canvas>
+        </div>
+    </div>
+
+    <div class="time-filter">
+        <button id="dayButton">Ngày</button>
+        <button id="weekButton">Tuần</button>
+        <button id="monthButton">Tháng</button>
+        <button id="yearButton">Năm</button>
+    </div>
+
+    <div class="forecast-table">
+        <h3>Bảng dự đoán thời tiết 5 ngày tới</h3>
+        <table>
+            <tr>
+                <th>Ngày</th>
+                <th>Nhiệt độ</th>
+                <th>Độ ẩm</th>
+                <th>Thời tiết</th>
+            </tr>
+            <tbody id="forecastTable"></tbody>
+        </table>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

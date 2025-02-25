@@ -1,0 +1,19 @@
+{
+  "name": "iot-weather",
+  "version": "1.0.0",
+  "description": "Website hiển thị dữ liệu thời tiết từ MQTT và MySQL",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "nodemon server/index.js"
+  },
+  "dependencies": {
+    "axios": "^1.7.9",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.18.2",
+    "mqtt": "^4.3.8",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.12.0"
+  }
+}
